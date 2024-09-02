@@ -38,5 +38,13 @@ namespace Projecto12024
                 }
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            //cargar formulario para agregar items.
+            Agregar Agg = new Agregar();
+            Agg.ShowDialog();
+
+        }
     }
 }
