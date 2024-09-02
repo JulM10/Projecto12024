@@ -16,5 +16,27 @@ namespace Projecto12024
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            CargarTabla();
+        }
+        private void CargarTabla()
+        {
+            // Limpiar las filas actuales
+            dgvTienda.Rows.Clear();
+
+            // Cargar los datos
+            CTienda1 tienda1 = new CTienda1();
+            DataTable TablaTienda = tienda1.GetTienda();
+
+            if (TablaTienda != null)
+            {
+                foreach (DataRow dr in TablaTienda.Rows)
+                {
+                    dgvTienda.Rows.Add(dr["Código"], dr["Nombre"], dr["Descripción"], dr["Precio"], dr["Stock"], dr["Categoría"]);
+                }
+            }
+        }
     }
 }
