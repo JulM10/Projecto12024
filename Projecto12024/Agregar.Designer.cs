@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +39,7 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
+            this.btnCategoria = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbCategoria
@@ -49,14 +50,15 @@
             this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
             this.cmbCategoria.TabIndex = 0;
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Location = new System.Drawing.Point(194, 202);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 41);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAgregar.Location = new System.Drawing.Point(15, 217);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(162, 41);
+            this.btnAgregar.TabIndex = 1;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtNombre
             // 
@@ -131,11 +133,21 @@
             this.txtStock.Size = new System.Drawing.Size(100, 20);
             this.txtStock.TabIndex = 10;
             // 
+            // btnCategoria
+            // 
+            this.btnCategoria.Location = new System.Drawing.Point(235, 183);
+            this.btnCategoria.Name = "btnCategoria";
+            this.btnCategoria.Size = new System.Drawing.Size(121, 23);
+            this.btnCategoria.TabIndex = 11;
+            this.btnCategoria.Text = "Agregar Categoria ";
+            this.btnCategoria.UseVisualStyleBackColor = true;
+            // 
             // Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 255);
+            this.ClientSize = new System.Drawing.Size(370, 270);
+            this.Controls.Add(this.btnCategoria);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtDescripcion);
@@ -145,10 +157,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cmbCategoria);
             this.Name = "Agregar";
             this.Text = "Agregar";
+            this.Load += new System.EventHandler(this.Agregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +170,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cmbCategoria;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -167,5 +180,6 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.Button btnCategoria;
     }
 }

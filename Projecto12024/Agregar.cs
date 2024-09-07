@@ -16,5 +16,23 @@ namespace Projecto12024
         {
             InitializeComponent();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            CTienda1 cTienda1 = new CTienda1();
+            String Nombre = txtNombre.Text;
+            String Descripcion = txtDescripcion.Text;
+            String Precio = txtPrecio.Text;
+            String Stock = txtStock.Text;
+            String Categoria = cmbCategoria.SelectedValue.ToString();
+
+
+
+        }
+
+        private void Agregar_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

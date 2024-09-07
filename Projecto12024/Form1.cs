@@ -28,13 +28,15 @@ namespace Projecto12024
 
             // Cargar los datos
             CTienda1 tienda1 = new CTienda1();
+            CCategorias categorias = new CCategorias();
             DataTable TablaTienda = tienda1.GetTienda();
 
             if (TablaTienda != null)
             {
                 foreach (DataRow dr in TablaTienda.Rows)
                 {
-                    dgvTienda.Rows.Add(dr["Código"], dr["Nombre"], dr["Descripción"], dr["Precio"], dr["Stock"], dr["Categoría"]);
+                    String Categoria = categorias.GetCategoria((int)dr["IdCategorías"]);
+                    dgvTienda.Rows.Add(dr["Código"], dr["Nombre"], dr["Descripción"], dr["Precio"], dr["Stock"],Categoria);
                 }
             }
         }
@@ -44,7 +46,12 @@ namespace Projecto12024
             //cargar formulario para agregar items.
             Agregar Agg = new Agregar();
             Agg.ShowDialog();
+        }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Modificar Modificar = new Modificar();
+            Modificar.ShowDialog();
         }
     }
 }

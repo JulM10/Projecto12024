@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Data.OleDb;
-using System.Data;
 
 namespace Projecto12024
 {
-    public class CTienda1
+    internal class CCategorias
     {
         OleDbConnection CNN;
-        OleDbCommand CmdTienda;
-        OleDbDataAdapter DaTienda;
+        OleDbCommand CmdCategoria;
+        OleDbDataAdapter DaCategoria;
         DataSet DS;
-        String Tabla = "Productos";
-        String Categorias = "Categorias";
+        String Tabla = "Categorias";
 
-        public CTienda1()
+        public CCategorias()
         {
             CNN = new OleDbConnection();
             CNN.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Tienda.mdb";
             CNN.Open();
             DS = new DataSet();
-            //Tabla tienda
+            //Tabla Categoria
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = CNN;
             cmd.CommandType = CommandType.TableDirect;
@@ -32,12 +30,22 @@ namespace Projecto12024
             OleDbDataAdapter DA = new OleDbDataAdapter(cmd);
             DA.Fill(DS, Tabla);
             DataColumn[] pk = new DataColumn[1];
-            pk[0] = DS.Tables[Tabla].Columns["Codigo"];
+            pk[0] = DS.Tables[Tabla].Columns["Id"];
             DS.Tables[Tabla].PrimaryKey = pk;
             OleDbCommandBuilder cb = new OleDbCommandBuilder(DA);
             CNN.Close();
         }
-        public DataTable GetTienda()
+        public String GetCategoria(int categoria)
+        {
+            String nombre = "";
+            DataRow drC = DS.Tables[Tabla].Rows.Find(categoria);
+            if (drC != null)
+            {
+                nombre = drC["Nombre"].ToString();
+            }
+            return nombre;
+        }
+        public DataTable GetTabla()
         {
             if (DS != null && DS.Tables.Contains(Tabla))
             {
@@ -45,42 +53,32 @@ namespace Projecto12024
             }
             return null;
         }
-        public void AgregarProducto(String Nombre,
-                                    String Descripcion,
-                                    int Precio,
-                                    int Stock,
-                                    String Categoria)
+        public void AgregarProducto(String Nombre)
         {
             OleDbTransaction transaccion = null;
             CNN.Open();
             transaccion = CNN.BeginTransaction();
-            insertProducto(transaccion,Nombre,Descripcion,Precio,Stock, Categoria);
+            insertProducto(transaccion, Nombre);
             transaccion.Commit();
-            CNN.Close();    
+            CNN.Close();
 
         }
 
         public void insertProducto(OleDbTransaction transaccion,
-                                    String Nombre,
-                                    String Descripcion,
-                                    int Precio,
-                                    int Stock,
-                                    String Categoria)
+                                    String Nombre)
         {
-            CmdTienda.Transaction = transaccion;
+            CmdCategoria.Transaction = transaccion;
             DataRow dr = DS.Tables[Tabla].NewRow();
             dr["Nombre"] = Nombre;
-            dr["Descripción"] = Descripcion;
-            dr["Precio"] = Precio;
-            dr["Stock"] = Stock;
-            dr["Categoría"] = Categoria;
             DS.Tables[Tabla].Rows.Add(dr);
-            DaTienda.Update(DS, Tabla);
+            DaCategoria.Update(DS, Tabla);
         }
         public void Dispose()
         {
             DS.Dispose();
         }
+
+
 
     }
 }
