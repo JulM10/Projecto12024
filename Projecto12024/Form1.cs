@@ -46,12 +46,18 @@ namespace Projecto12024
             //cargar formulario para agregar items.
             Agregar Agg = new Agregar();
             Agg.ShowDialog();
+            CargarTabla();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Modificar Modificar = new Modificar();
             Modificar.ShowDialog();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -24,14 +24,29 @@ namespace Projecto12024
             String Descripcion = txtDescripcion.Text;
             String Precio = txtPrecio.Text;
             String Stock = txtStock.Text;
-            String Categoria = cmbCategoria.SelectedValue.ToString();
+            Int32 Categoria = (int)cmbCategoria.SelectedValue;
 
-
-
+            //Agregar productos a la tienda
+            cTienda1.AgregarProducto(Nombre, Descripcion, Precio ,Stock, Categoria);
+            this.Close();
         }
 
         private void Agregar_Load(object sender, EventArgs e)
         {
+            CargarCombo();        }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            Categoria categoria = new Categoria();  
+            categoria.ShowDialog();
+        }
+        private void CargarCombo()
+        {
+            //Datos categorias
+            CCategorias categorias = new CCategorias();
+            cmbCategoria.DisplayMember = "Nombre";
+            cmbCategoria.ValueMember = "id";
+            cmbCategoria.DataSource = categorias.GetTabla();
 
         }
     }

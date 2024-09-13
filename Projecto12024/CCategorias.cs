@@ -23,11 +23,11 @@ namespace Projecto12024
             CNN.Open();
             DS = new DataSet();
             //Tabla Categoria
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = CNN;
-            cmd.CommandType = CommandType.TableDirect;
-            cmd.CommandText = Tabla;
-            OleDbDataAdapter DA = new OleDbDataAdapter(cmd);
+            CmdCategoria = new OleDbCommand();
+            CmdCategoria.Connection = CNN;
+            CmdCategoria.CommandType = CommandType.TableDirect;
+            CmdCategoria.CommandText = Tabla;
+            OleDbDataAdapter DA = new OleDbDataAdapter(CmdCategoria);
             DA.Fill(DS, Tabla);
             DataColumn[] pk = new DataColumn[1];
             pk[0] = DS.Tables[Tabla].Columns["Id"];

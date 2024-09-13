@@ -38,7 +38,9 @@ namespace Projecto12024
 
         private void btnCategoria_Click(object sender, EventArgs e)
         {
-            
+            Categoria categoria = new Categoria();
+            categoria.ShowDialog();
+
         }
 
         private void cmbCodigo_SelectedIndexChanged(object sender, EventArgs e)

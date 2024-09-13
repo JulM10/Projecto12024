@@ -16,7 +16,6 @@ namespace Projecto12024
         OleDbDataAdapter DaTienda;
         DataSet DS;
         String Tabla = "Productos";
-        String Categorias = "Categorias";
 
         public CTienda1()
         {
@@ -25,16 +24,16 @@ namespace Projecto12024
             CNN.Open();
             DS = new DataSet();
             //Tabla tienda
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = CNN;
-            cmd.CommandType = CommandType.TableDirect;
-            cmd.CommandText = Tabla;
-            OleDbDataAdapter DA = new OleDbDataAdapter(cmd);
-            DA.Fill(DS, Tabla);
+            CmdTienda = new OleDbCommand();
+            CmdTienda.Connection = CNN;
+            CmdTienda.CommandType = CommandType.TableDirect;
+            CmdTienda.CommandText = Tabla;
+            DaTienda = new OleDbDataAdapter(CmdTienda);
+            DaTienda.Fill(DS, Tabla);
             DataColumn[] pk = new DataColumn[1];
             pk[0] = DS.Tables[Tabla].Columns["Codigo"];
             DS.Tables[Tabla].PrimaryKey = pk;
-            OleDbCommandBuilder cb = new OleDbCommandBuilder(DA);
+            OleDbCommandBuilder cb = new OleDbCommandBuilder(DaTienda);
             CNN.Close();
         }
         public DataTable GetTienda()
@@ -47,9 +46,9 @@ namespace Projecto12024
         }
         public void AgregarProducto(String Nombre,
                                     String Descripcion,
-                                    int Precio,
-                                    int Stock,
-                                    String Categoria)
+                                    String Precio,
+                                    String Stock,
+                                    Int32 Categoria)
         {
             OleDbTransaction transaccion = null;
             CNN.Open();
@@ -63,9 +62,9 @@ namespace Projecto12024
         public void insertProducto(OleDbTransaction transaccion,
                                     String Nombre,
                                     String Descripcion,
-                                    int Precio,
-                                    int Stock,
-                                    String Categoria)
+                                    String Precio,
+                                    String Stock,
+                                    Int32 Categoria)
         {
             CmdTienda.Transaction = transaccion;
             DataRow dr = DS.Tables[Tabla].NewRow();
@@ -73,7 +72,7 @@ namespace Projecto12024
             dr["Descripción"] = Descripcion;
             dr["Precio"] = Precio;
             dr["Stock"] = Stock;
-            dr["Categoría"] = Categoria;
+            dr["IdCategorías"] = Categoria;
             DS.Tables[Tabla].Rows.Add(dr);
             DaTienda.Update(DS, Tabla);
         }
