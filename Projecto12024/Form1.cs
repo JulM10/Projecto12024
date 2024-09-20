@@ -36,7 +36,7 @@ namespace Projecto12024
                 foreach (DataRow dr in TablaTienda.Rows)
                 {
                     String Categoria = categorias.GetCategoria((int)dr["IdCategorías"]);
-                    dgvTienda.Rows.Add(dr["Código"], dr["Nombre"], dr["Descripción"], dr["Precio"], dr["Stock"],Categoria);
+                    dgvTienda.Rows.Add(dr["Código"], dr["Nombre"], dr["Descripción"], "$ "+dr["Precio"], dr["Stock"],Categoria);
                 }
             }
         }

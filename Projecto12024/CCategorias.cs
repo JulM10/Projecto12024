@@ -19,7 +19,7 @@ namespace Projecto12024
         public CCategorias()
         {
             CNN = new OleDbConnection();
-            CNN.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Tienda.mdb";
+            CNN.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=DB/Tienda.mdb";
             CNN.Open();
             DS = new DataSet();
             //Tabla Categoria
@@ -53,7 +53,7 @@ namespace Projecto12024
             }
             return null;
         }
-        public void AgregarProducto(String Nombre)
+        public void AgregarCategoria(String Nombre)
         {
             OleDbTransaction transaccion = null;
             CNN.Open();

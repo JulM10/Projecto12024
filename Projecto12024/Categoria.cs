@@ -25,7 +25,8 @@ namespace Projecto12024
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             String Nombre  = txtCategoria.Text;
-            //Agregar categoria
+            CCategorias categoria = new CCategorias();
+            categoria.AgregarCategoria(Nombre);
 
         }
     }
