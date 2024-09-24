@@ -91,6 +91,10 @@ namespace Projecto12024
             DaCategoria.Update(DS, Tabla);
             DS.Tables[Tabla].AcceptChanges();
         }
+        public void FiltrarPorCategoria()
+        {
+
+        }
         public void Dispose()
         {
             DS.Dispose();
