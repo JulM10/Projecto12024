@@ -45,7 +45,6 @@
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnFiltrarNombre = new System.Windows.Forms.Button();
             this.BtnFiltrarCodigo = new System.Windows.Forms.Button();
@@ -87,7 +86,7 @@
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.Location = new System.Drawing.Point(12, 469);
+            this.BtnEliminar.Location = new System.Drawing.Point(12, 479);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(134, 54);
             this.BtnEliminar.TabIndex = 1;
@@ -96,7 +95,7 @@
             // 
             // BtnModificar
             // 
-            this.BtnModificar.Location = new System.Drawing.Point(12, 409);
+            this.BtnModificar.Location = new System.Drawing.Point(12, 419);
             this.BtnModificar.Name = "BtnModificar";
             this.BtnModificar.Size = new System.Drawing.Size(134, 54);
             this.BtnModificar.TabIndex = 2;
@@ -106,7 +105,7 @@
             // 
             // BtnAgregar
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(12, 349);
+            this.BtnAgregar.Location = new System.Drawing.Point(12, 359);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(134, 54);
             this.BtnAgregar.TabIndex = 3;
@@ -141,7 +140,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvTienda.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DgvTienda.Location = new System.Drawing.Point(152, 132);
+            this.DgvTienda.Location = new System.Drawing.Point(152, 126);
             this.DgvTienda.Name = "DgvTienda";
             this.DgvTienda.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -152,7 +151,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvTienda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DgvTienda.Size = new System.Drawing.Size(753, 391);
+            this.DgvTienda.Size = new System.Drawing.Size(753, 406);
             this.DgvTienda.TabIndex = 4;
             // 
             // Codigo
@@ -193,7 +192,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.BtnFiltrarNombre);
             this.groupBox1.Controls.Add(this.BtnFiltrarCodigo);
@@ -206,33 +204,24 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(893, 99);
+            this.groupBox1.Size = new System.Drawing.Size(893, 84);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda de productos";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(744, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Mostrar todos los resultados";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(729, 67);
+            this.button1.Location = new System.Drawing.Point(706, 23);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "Cargar todos los resultados";
+            this.button1.Text = "Eliminar filtros de busqueda";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // BtnFiltrarNombre
             // 
-            this.BtnFiltrarNombre.Location = new System.Drawing.Point(326, 70);
+            this.BtnFiltrarNombre.Location = new System.Drawing.Point(328, 50);
             this.BtnFiltrarNombre.Name = "BtnFiltrarNombre";
             this.BtnFiltrarNombre.Size = new System.Drawing.Size(100, 23);
             this.BtnFiltrarNombre.TabIndex = 8;
@@ -242,7 +231,7 @@
             // 
             // BtnFiltrarCodigo
             // 
-            this.BtnFiltrarCodigo.Location = new System.Drawing.Point(98, 70);
+            this.BtnFiltrarCodigo.Location = new System.Drawing.Point(100, 50);
             this.BtnFiltrarCodigo.Name = "BtnFiltrarCodigo";
             this.BtnFiltrarCodigo.Size = new System.Drawing.Size(100, 23);
             this.BtnFiltrarCodigo.TabIndex = 7;
@@ -252,9 +241,9 @@
             // 
             // BtnFiltrarCategorias
             // 
-            this.BtnFiltrarCategorias.Location = new System.Drawing.Point(563, 67);
+            this.BtnFiltrarCategorias.Location = new System.Drawing.Point(560, 50);
             this.BtnFiltrarCategorias.Name = "BtnFiltrarCategorias";
-            this.BtnFiltrarCategorias.Size = new System.Drawing.Size(130, 23);
+            this.BtnFiltrarCategorias.Size = new System.Drawing.Size(100, 23);
             this.BtnFiltrarCategorias.TabIndex = 6;
             this.BtnFiltrarCategorias.Text = "Filtrar";
             this.BtnFiltrarCategorias.UseVisualStyleBackColor = true;
@@ -263,21 +252,21 @@
             // cmbCategorias
             // 
             this.cmbCategorias.FormattingEnabled = true;
-            this.cmbCategorias.Location = new System.Drawing.Point(563, 29);
+            this.cmbCategorias.Location = new System.Drawing.Point(560, 24);
             this.cmbCategorias.Name = "cmbCategorias";
-            this.cmbCategorias.Size = new System.Drawing.Size(130, 21);
+            this.cmbCategorias.Size = new System.Drawing.Size(100, 21);
             this.cmbCategorias.TabIndex = 5;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(326, 30);
+            this.txtNombre.Location = new System.Drawing.Point(328, 24);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 4;
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(98, 30);
+            this.txtCodigo.Location = new System.Drawing.Point(100, 24);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 3;
@@ -285,7 +274,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(432, 33);
+            this.label3.Location = new System.Drawing.Point(457, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 2;
@@ -294,7 +283,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 33);
+            this.label2.Location = new System.Drawing.Point(234, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 1;
@@ -303,7 +292,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Location = new System.Drawing.Point(8, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 0;
@@ -359,7 +348,6 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button BtnFiltrarNombre;
         private System.Windows.Forms.Button BtnFiltrarCodigo;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
     }
 }
