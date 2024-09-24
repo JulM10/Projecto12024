@@ -19,7 +19,7 @@ namespace Projecto12024
         public CCategorias()
         {
             CNN = new OleDbConnection();
-            CNN.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=DB/Tienda.mdb";
+            CNN.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Tienda.mdb";
             CNN.Open();
             DS = new DataSet();
             //Tabla Categoria
@@ -42,7 +42,7 @@ namespace Projecto12024
             DS.Tables[Tabla].Columns["Id"].AutoIncrement = true;
             DS.Tables[Tabla].Columns["Id"].AutoIncrementSeed = maxId + 1; // Comenzar desde el valor máximo existente
             DS.Tables[Tabla].Columns["Id"].AutoIncrementStep = 1;
-
+            //Preguntar como cambiar este codigo 
 
             DataColumn[] pk = new DataColumn[1];
             pk[0] = DS.Tables[Tabla].Columns["Id"];
@@ -50,7 +50,6 @@ namespace Projecto12024
             OleDbCommandBuilder cb = new OleDbCommandBuilder(DaCategoria);
             CNN.Close();
         }
-
         public String GetCategoria(int categoria)
         {
             String nombre = "";
@@ -61,7 +60,6 @@ namespace Projecto12024
             }
             return nombre;
         }
-
         public DataTable GetTabla()
         {
             if (DS != null && DS.Tables.Contains(Tabla))
@@ -70,18 +68,18 @@ namespace Projecto12024
             }
             return null;
         }
-
         public void AgregarProducto(String Nombre)
         {
             OleDbTransaction transaccion = null;
             CNN.Open();
             transaccion = CNN.BeginTransaction();
-            InsertProducto(transaccion, Nombre);
+            insertProducto(transaccion, Nombre);
             transaccion.Commit();
             CNN.Close();
+
         }
 
-        public void InsertProducto(OleDbTransaction transaccion,
+        public void insertProducto(OleDbTransaction transaccion,
                                     String Nombre)
         {
             CmdCategoria.Transaction = transaccion;
@@ -96,5 +94,8 @@ namespace Projecto12024
         {
             DS.Dispose();
         }
+
+
+
     }
 }

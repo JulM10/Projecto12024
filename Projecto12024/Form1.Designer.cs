@@ -32,10 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.busquedasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.porNombreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.porCodigoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.porCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnEliminar = new System.Windows.Forms.Button();
@@ -55,41 +51,12 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.busquedasToolStripMenuItem,
             this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(953, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(813, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // busquedasToolStripMenuItem
-            // 
-            this.busquedasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.porNombreToolStripMenuItem,
-            this.porCodigoToolStripMenuItem,
-            this.porCategoriaToolStripMenuItem});
-            this.busquedasToolStripMenuItem.Name = "busquedasToolStripMenuItem";
-            this.busquedasToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-            this.busquedasToolStripMenuItem.Text = "Busquedas";
-            // 
-            // porNombreToolStripMenuItem
-            // 
-            this.porNombreToolStripMenuItem.Name = "porNombreToolStripMenuItem";
-            this.porNombreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.porNombreToolStripMenuItem.Text = "Por nombre";
-            // 
-            // porCodigoToolStripMenuItem
-            // 
-            this.porCodigoToolStripMenuItem.Name = "porCodigoToolStripMenuItem";
-            this.porCodigoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.porCodigoToolStripMenuItem.Text = "Por codigo";
-            // 
-            // porCategoriaToolStripMenuItem
-            // 
-            this.porCategoriaToolStripMenuItem.Name = "porCategoriaToolStripMenuItem";
-            this.porCategoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.porCategoriaToolStripMenuItem.Text = "Por categoria";
             // 
             // reportesToolStripMenuItem
             // 
@@ -172,7 +139,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvTienda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvTienda.Size = new System.Drawing.Size(789, 348);
+            this.dgvTienda.Size = new System.Drawing.Size(646, 348);
             this.dgvTienda.TabIndex = 4;
             // 
             // Codigo
@@ -215,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 387);
+            this.ClientSize = new System.Drawing.Size(813, 387);
             this.Controls.Add(this.dgvTienda);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnModificar);
@@ -236,16 +203,12 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem busquedasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgvTienda;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem porNombreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem porCodigoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem porCategoriaToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;

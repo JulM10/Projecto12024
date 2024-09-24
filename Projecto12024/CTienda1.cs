@@ -20,7 +20,7 @@ namespace Projecto12024
         public CTienda1()
         {
             CNN = new OleDbConnection();
-            CNN.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Tienda.mdb";
+            CNN.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=DB/Tienda.mdb";
             CNN.Open();
             DS = new DataSet();
             //Tabla tienda
