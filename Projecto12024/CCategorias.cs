@@ -70,7 +70,6 @@ namespace Projecto12024
             }
             return null;
         }
-
         public void AgregarProducto(String Nombre)
         {
             OleDbTransaction transaccion = null;
