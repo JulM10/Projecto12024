@@ -35,17 +35,10 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BtnEliminar = new System.Windows.Forms.Button();
-            this.BtnModificar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.DgvTienda = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnEliminarFiltro = new System.Windows.Forms.Button();
             this.BtnFiltrarNombre = new System.Windows.Forms.Button();
             this.BtnFiltrarCodigo = new System.Windows.Forms.Button();
             this.BtnFiltrarCategorias = new System.Windows.Forms.Button();
@@ -55,6 +48,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripción = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTienda)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -93,19 +92,9 @@
             this.BtnEliminar.Text = "Eliminar";
             this.BtnEliminar.UseVisualStyleBackColor = true;
             // 
-            // BtnModificar
-            // 
-            this.BtnModificar.Location = new System.Drawing.Point(12, 419);
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(134, 54);
-            this.BtnModificar.TabIndex = 2;
-            this.BtnModificar.Text = "Modificar";
-            this.BtnModificar.UseVisualStyleBackColor = true;
-            this.BtnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
             // BtnAgregar
             // 
-            this.BtnAgregar.Location = new System.Drawing.Point(12, 359);
+            this.BtnAgregar.Location = new System.Drawing.Point(12, 419);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(134, 54);
             this.BtnAgregar.TabIndex = 3;
@@ -126,9 +115,9 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DgvTienda.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvTienda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
+            this.Código,
             this.Nombre,
-            this.Descripcion,
+            this.Descripción,
             this.Precio,
             this.Stock,
             this.Categoria});
@@ -153,46 +142,11 @@
             this.DgvTienda.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DgvTienda.Size = new System.Drawing.Size(753, 406);
             this.DgvTienda.TabIndex = 4;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
+            this.DgvTienda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTienda_CellDoubleClick);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.BtnEliminarFiltro);
             this.groupBox1.Controls.Add(this.BtnFiltrarNombre);
             this.groupBox1.Controls.Add(this.BtnFiltrarCodigo);
             this.groupBox1.Controls.Add(this.BtnFiltrarCategorias);
@@ -209,15 +163,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda de productos";
             // 
-            // button1
+            // BtnEliminarFiltro
             // 
-            this.button1.Location = new System.Drawing.Point(706, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Eliminar filtros de busqueda";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.BtnEliminarFiltro.Location = new System.Drawing.Point(706, 23);
+            this.BtnEliminarFiltro.Name = "BtnEliminarFiltro";
+            this.BtnEliminarFiltro.Size = new System.Drawing.Size(153, 23);
+            this.BtnEliminarFiltro.TabIndex = 9;
+            this.BtnEliminarFiltro.Text = "Eliminar filtros de busqueda";
+            this.BtnEliminarFiltro.UseVisualStyleBackColor = true;
+            this.BtnEliminarFiltro.Click += new System.EventHandler(this.BtnEliminarFiltro_Click);
             // 
             // BtnFiltrarNombre
             // 
@@ -298,6 +252,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Filtrar por Codigo";
             // 
+            // Código
+            // 
+            this.Código.HeaderText = "Codigo";
+            this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Descripción
+            // 
+            this.Descripción.HeaderText = "Descripcion";
+            this.Descripción.Name = "Descripción";
+            this.Descripción.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoria";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,7 +296,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DgvTienda);
             this.Controls.Add(this.BtnAgregar);
-            this.Controls.Add(this.BtnModificar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -328,16 +317,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.Button BtnEliminar;
-        private System.Windows.Forms.Button BtnModificar;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.DataGridView DgvTienda;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -348,7 +330,13 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button BtnFiltrarNombre;
         private System.Windows.Forms.Button BtnFiltrarCodigo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnEliminarFiltro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripción;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
     }
 }
 

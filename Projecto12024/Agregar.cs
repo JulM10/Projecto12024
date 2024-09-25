@@ -19,16 +19,48 @@ namespace Projecto12024
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            CTienda1 cTienda1 = new CTienda1();
-            String Nombre = txtNombre.Text;
-            String Descripcion = txtDescripcion.Text;
-            String Precio = txtPrecio.Text;
-            String Stock = txtStock.Text;
-            Int32 Categoria = (int)cmbCategoria.SelectedValue;
+            try
+            {
+                CTienda1 cTienda1 = new CTienda1();
+                String Nombre = txtNombre.Text.Trim();
+                String Descripcion = txtDescripcion.Text.Trim();
+                String Precio = txtPrecio.Text.Trim();
+                String Stock = txtStock.Text.Trim();
 
-            //Agregar productos a la tienda
-            cTienda1.AgregarProducto(Nombre, Descripcion, Precio ,Stock, Categoria);
-            this.Close();
+                // Validación de campos
+                if (string.IsNullOrEmpty(Nombre) ||
+                    string.IsNullOrEmpty(Descripcion) ||
+                    string.IsNullOrEmpty(Precio) ||
+                    string.IsNullOrEmpty(Stock))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Validar que el precio y el stock sean numéricos y positivos
+                if (!decimal.TryParse(Precio, out decimal precioValue) || precioValue < 0)
+                {
+                    MessageBox.Show("El precio debe ser un valor numérico válido y no puede ser menor a 0.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!int.TryParse(Stock, out int stockValue) || stockValue < 0)
+                {
+                    MessageBox.Show("El stock debe ser un valor numérico válido y no puede ser menor a 0.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Int32 Categoria = (int)cmbCategoria.SelectedValue;
+
+                // Agregar productos a la tienda
+                cTienda1.AgregarProducto(Nombre, Descripcion, Precio, Stock, Categoria);
+                MessageBox.Show("Producto agregado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al agregar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Agregar_Load(object sender, EventArgs e)

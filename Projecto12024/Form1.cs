@@ -10,8 +10,7 @@ using System.Windows.Forms;
 
 namespace Projecto12024
 {
-
-    //FALTA BOTON ELIMINAR Y MODIFICAR
+    //FALTA BOTON ELIMINAR
     //FALTA EXPORTAR
     public partial class Form1 : Form
     {
@@ -53,12 +52,6 @@ namespace Projecto12024
             Agregar Agg = new Agregar();
             Agg.ShowDialog();
             CargarTabla();
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            Modificar Modificar = new Modificar();
-            Modificar.ShowDialog();
         }
         private void CargarCombo()
         {
@@ -152,14 +145,14 @@ namespace Projecto12024
                 }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnEliminarFiltro_Click(object sender, EventArgs e)
         {
             //Limpio las caja de texto 
             txtCodigo.Text = string.Empty;  
             txtNombre.Text = string.Empty;
             //Limpio la data grid view para agregar los datos de nuevo
             DgvTienda.Columns.Clear ();
-
+            //Agrego las columnas y filas
             DgvTienda.Columns.Add("Código", "Código");
             DgvTienda.Columns.Add("Nombre", "Nombre");
             DgvTienda.Columns.Add("Descripción", "Descripción");
@@ -200,6 +193,26 @@ namespace Projecto12024
             else
             {
                 MessageBox.Show("Por favor, ingresa un nombre válido para filtrar.", "Error de filtro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void DgvTienda_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 )
+            {
+                //cargo los datos seleccionados en variables
+
+                string codigo = DgvTienda.Rows[e.RowIndex].Cells["Código"].Value.ToString();
+                string Nombre = DgvTienda.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                string Descripcion = DgvTienda.Rows[e.RowIndex].Cells["Descripción"].Value.ToString();
+                string Precio= DgvTienda.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+                string Stock= DgvTienda.Rows[e.RowIndex].Cells["Stock"].Value.ToString();
+                string Categoria = DgvTienda.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
+
+                //Abro el formulario de modificacion y le envio los datos
+                Modificar ModificarForm = new Modificar(codigo,Nombre,Descripcion,Precio,Stock,Categoria);
+                ModificarForm.ShowDialog();
+                CargarTabla();
             }
         }
     }
