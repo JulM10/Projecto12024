@@ -97,7 +97,22 @@ namespace Projecto12024
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+                if (result == DialogResult.Yes)
+                {
+                    int codigo = int.Parse(TxtCodigo.Text);
+                    tienda1.EliminarProducto(codigo);
+                    MessageBox.Show("Producto eliminado exitosamente.", "Eliminación completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -213,6 +214,53 @@ namespace Projecto12024
                 Modificar ModificarForm = new Modificar(codigo,Nombre,Descripcion,Precio,Stock,Categoria);
                 ModificarForm.ShowDialog();
                 CargarTabla();
+            }
+        }
+
+        private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivo de texto (*.txt)|*.txt";
+                saveFileDialog.Title = "Guardar como";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Crear el archivo de texto
+                    using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        // Escribir los encabezados (opcional)
+                        for (int i = 0; i < DgvTienda.Columns.Count; i++)
+                        {
+                            sw.Write(DgvTienda.Columns[i].HeaderText);
+                            if (i < DgvTienda.Columns.Count - 1)
+                                sw.Write("\t");
+                        }
+                        sw.WriteLine();
+
+                        // Escribir los datos de cada fila
+                        foreach (DataGridViewRow row in DgvTienda.Rows)
+                        {
+                            if (!row.IsNewRow)
+                            {
+                                for (int i = 0; i < DgvTienda.Columns.Count; i++)
+                                {
+                                    sw.Write(row.Cells[i].Value?.ToString());
+                                    if (i < DgvTienda.Columns.Count - 1)
+                                        sw.Write("\t");
+                                }
+                                sw.WriteLine(); 
+                            }
+                        }
+                    }
+
+                    MessageBox.Show("Datos exportados correctamente", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al exportar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
