@@ -72,18 +72,15 @@ namespace Projecto12024
 
         private void BtnFiltrarCategorias_Click(object sender, EventArgs e)
         {
-            // Asegúrate de que se haya seleccionado una categoría
             if (cmbCategorias.SelectedItem != null)
             {
                 // Limpiar las columnas antes de filtrar
                 DgvTienda.Columns.Clear();
 
-                // Obtener el id de la categoría seleccionada
                 int categoriaId = (int)((DataRowView)cmbCategorias.SelectedItem)["id"];
 
-                // Crear DataView para aplicar el filtro
                 DataView dv = new DataView(TablaTienda);
-                dv.RowFilter = $"IdCategorías = {categoriaId}"; // Filtrar por Id de categoría
+                dv.RowFilter = $"IdCategorías = {categoriaId}"; 
 
                 // Volver a agregar las columnas manualmente
                 DgvTienda.Columns.Add("Código", "Código");
@@ -93,7 +90,6 @@ namespace Projecto12024
                 DgvTienda.Columns.Add("Stock", "Stock");
                 DgvTienda.Columns.Add("Categoría", "Categoría");
 
-                // Cargar los datos filtrados en el DataGridView
                 foreach (DataRowView drv in dv)
                 {
                     CCategorias categorias = new CCategorias();
@@ -118,9 +114,8 @@ namespace Projecto12024
                     DgvTienda.Columns.Clear();
 
                     DataView dv = new DataView(TablaTienda);
-                    dv.RowFilter = $"Código = {codigoNumerico}"; // Eliminar comillas simples para valores numéricos
-                    
-                    // Volver a agregar las columnas manualmente
+                    dv.RowFilter = $"Código = {codigoNumerico}";
+
                     DgvTienda.Columns.Add("Código", "Código");
                     DgvTienda.Columns.Add("Nombre", "Nombre");
                     DgvTienda.Columns.Add("Descripción", "Descripción");
@@ -128,7 +123,6 @@ namespace Projecto12024
                     DgvTienda.Columns.Add("Stock", "Stock");
                     DgvTienda.Columns.Add("Categoría", "Categoría");
 
-                    // Cargar los datos filtrados en el DataGridView
                     foreach (DataRowView drv in dv)
                     {
                         CCategorias categorias = new CCategorias();
@@ -146,12 +140,11 @@ namespace Projecto12024
 
         private void BtnEliminarFiltro_Click(object sender, EventArgs e)
         {
-            //Limpio las caja de texto 
             txtCodigo.Text = string.Empty;  
             txtNombre.Text = string.Empty;
-            //Limpio la data grid view para agregar los datos de nuevo
+
             DgvTienda.Columns.Clear ();
-            //Agrego las columnas y filas
+
             DgvTienda.Columns.Add("Código", "Código");
             DgvTienda.Columns.Add("Nombre", "Nombre");
             DgvTienda.Columns.Add("Descripción", "Descripción");
@@ -169,11 +162,9 @@ namespace Projecto12024
                 // Limpiar las columnas antes de filtrar
                 DgvTienda.Columns.Clear();
 
-                // Crear DataView para aplicar el filtro
                 DataView dv = new DataView(TablaTienda);
-                dv.RowFilter = $"Nombre LIKE '%{nombre}%'"; // Usar LIKE para coincidencias parciales
+                dv.RowFilter = $"Nombre LIKE '%{nombre}%'";
 
-                // Volver a agregar las columnas manualmente
                 DgvTienda.Columns.Add("Código", "Código");
                 DgvTienda.Columns.Add("Nombre", "Nombre");
                 DgvTienda.Columns.Add("Descripción", "Descripción");
@@ -181,7 +172,6 @@ namespace Projecto12024
                 DgvTienda.Columns.Add("Stock", "Stock");
                 DgvTienda.Columns.Add("Categoría", "Categoría");
 
-                // Cargar los datos filtrados en el DataGridView
                 foreach (DataRowView drv in dv)
                 {
                     CCategorias categorias = new CCategorias();
@@ -228,7 +218,6 @@ namespace Projecto12024
                     // Crear el archivo de texto
                     using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
                     {
-                        // Escribir los encabezados (opcional)
                         for (int i = 0; i < DgvTienda.Columns.Count; i++)
                         {
                             sw.Write(DgvTienda.Columns[i].HeaderText);
