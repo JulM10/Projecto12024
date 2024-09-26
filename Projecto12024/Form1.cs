@@ -11,8 +11,6 @@ using System.Windows.Forms;
 
 namespace Projecto12024
 {
-    //FALTA BOTON ELIMINAR
-    //FALTA EXPORTAR
     public partial class Form1 : Form
     {
         private DataTable TablaTienda;
